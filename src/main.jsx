@@ -9,6 +9,7 @@ import ErrorPage from "./pages/ErrorPage/Erropage.jsx";
 import Home from "./pages/Home/Home.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Login from "./pages/Login/Login.jsx";
+import AuthProvider from "./Providers/AuthProvider.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -33,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
