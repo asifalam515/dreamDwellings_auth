@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import toast, { Toaster } from "react-hot-toast"; // Correctly importing Toaster
+// import toast, { ToastBar, Toaster } from "react-hot-toast";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Register = () => {
+  // get context data using useContext
+  const { createUser } = useContext(AuthContext);
   // success message
   const [success, setSuccess] = useState("");
   // error message
@@ -20,19 +25,24 @@ const Register = () => {
       setRegisterError(
         "Your password must have UpperCase,lowercase and length must be greater than 6"
       );
-      toast.error(
-        "Your password must have UpperCase,lowercase and length must be greater than 6 and so on",
-        {
-          duration: 2000,
-        }
+
+      toast(
+        "Your password must have UpperCase,lowercase and length must be greater than 6 "
       );
+
       return;
     }
     //  registration
-
-    toast.success("Registration successful!", {
-      duration: 2000,
-    });
+    createUser(email, password)
+      .then((result) => {
+        const newUser = result.user;
+        console.log("logged created", newUser);
+        toast("Account Registered Successfully");
+      })
+      .catch((error) => {
+        setRegisterError("Error Occurs", error.message);
+        console.log(error);
+      });
   };
 
   return (
@@ -108,8 +118,8 @@ const Register = () => {
         </div>
       </div>
       <div>
-        {/* Render Toaster component for toast notifications */}
-        <Toaster />
+        {/* toast notification */}
+        <ToastContainer />
       </div>
     </div>
   );

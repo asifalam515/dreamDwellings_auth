@@ -1,13 +1,49 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigation } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+  // const navigation = useNavigation();
+  // get data from context
+  const { loginUser, user } = useContext(AuthContext);
+  // error showing state
+  const [loginError, setLoginError] = useState("");
+  // handle login form
+  const handleLoginForm = (e) => {
+    setLoginError("");
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    // login user
+    loginUser(email, password)
+      .then((result) => {
+        toast("User logged In");
+
+        console.log("user logged In", result.user);
+        <Navigate to="/"></Navigate>;
+      })
+      .catch((error) => {
+        setLoginError("Error Occurs", error.message);
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-900 bg-gray-900 text-gray-100 text-gray-100">
         <h1 className="text-2xl font-bold text-center">Login</h1>
 
         {/* actual form started from here */}
-        <form noValidate="" action="" className="space-y-6">
+        <form
+          onSubmit={handleLoginForm}
+          noValidate=""
+          action=""
+          className="space-y-6"
+        >
           <div className="space-y-1 text-sm">
             <label
               htmlFor="email"
@@ -89,6 +125,13 @@ const Login = () => {
             Register Here
           </Link>
         </p>
+      </div>
+      <div>
+        <ToastContainer></ToastContainer>
+        {/* error message */}
+        {loginError && (
+          <h1 className="text-5xl text-green-500">{loginError}</h1>
+        )}
       </div>
     </div>
   );
