@@ -21,7 +21,7 @@ const Register = () => {
         "Your password must have UpperCase,lowercase and length must be greater than 6"
       );
       toast.error(
-        "Your password must have UpperCase,lowercase and length must be greater than 6",
+        "Your password must have UpperCase,lowercase and length must be greater than 6 and so on",
         {
           duration: 2000,
         }
