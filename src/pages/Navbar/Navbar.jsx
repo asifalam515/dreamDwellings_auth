@@ -5,7 +5,7 @@ import { toast, ToastContainer } from "react-toastify";
 import { ToastBar } from "react-hot-toast";
 
 const Navbar = () => {
-  const { user, logoutUser, loader, photo } = useContext(AuthContext);
+  const { user, logoutUser, loader, photo, name } = useContext(AuthContext);
   const handleLogOut = () => {
     logoutUser().then(() => {
       toast("User Logged Out");
@@ -62,18 +62,28 @@ const Navbar = () => {
               {navData}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">DreamDwellings</a>
+          <Link to="/" className="btn btn-ghost text-xl">
+            DreamDwellings
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navData}</ul>
         </div>
         <div className="navbar-end">
           {/* profile image */}
-          <img
-            className="w-24 h-24 rounded-lg object-cover "
-            src={photo}
-            alt=""
-          />
+          {/* Profile image with tooltip */}
+          {user && (
+            <div className="relative group">
+              <img
+                className="w-12 h-12 rounded-full object-cover"
+                src={photo}
+                alt="Profile"
+              />
+              <span className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                <h1 className="text-2xl">{name}</h1>
+              </span>
+            </div>
+          )}
 
           {user ? (
             <button onClick={handleLogOut} className="btn">

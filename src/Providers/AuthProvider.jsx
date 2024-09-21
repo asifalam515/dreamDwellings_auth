@@ -16,10 +16,14 @@ const AuthProvider = ({ children }) => {
   const [loader, setLoader] = useState(true);
   // photo
   const [photo, setPhoto] = useState("");
+  // name
+  const [name, setName] = useState("");
   // create new user
-  const createUser = (email, password, profilePhoto) => {
+  const createUser = (email, password, profilePhoto, name) => {
     setPhoto(profilePhoto);
+    setName(name);
     setLoader(true);
+
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
@@ -51,6 +55,7 @@ const AuthProvider = ({ children }) => {
     logoutUser,
     loader,
     photo,
+    name,
   };
 
   return (

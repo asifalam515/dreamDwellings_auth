@@ -38,7 +38,7 @@ const Register = () => {
       return;
     }
     // registration
-    createUser(email, password, profilePhoto)
+    createUser(email, password, profilePhoto, name)
       .then((result) => {
         const newUser = result.user;
         console.log("logged created", newUser);
