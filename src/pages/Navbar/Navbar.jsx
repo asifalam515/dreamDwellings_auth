@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { ToastBar } from "react-hot-toast";
 
 const Navbar = () => {
-  const { user, logoutUser } = useContext(AuthContext);
+  const { user, logoutUser, loader, photo } = useContext(AuthContext);
   const handleLogOut = () => {
     logoutUser().then(() => {
       toast("User Logged Out");
@@ -22,14 +23,14 @@ const Navbar = () => {
         <NavLink to="/update">Update Profile</NavLink>
       </li>
 
-      <li>
-        <NavLink to="/profile">User Profile</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/profile">User Profile</NavLink>
+          <img src="" alt="" />
+        </li>
+      )}
       <li>
         <NavLink to="/register">Register</NavLink>
-      </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
       </li>
     </>
   );
@@ -67,6 +68,13 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navData}</ul>
         </div>
         <div className="navbar-end">
+          {/* profile image */}
+          <img
+            className="w-24 h-24 rounded-lg object-cover "
+            src={photo}
+            alt=""
+          />
+
           {user ? (
             <button onClick={handleLogOut} className="btn">
               LogOut
@@ -77,6 +85,12 @@ const Navbar = () => {
             </Link>
           )}
         </div>
+      </div>
+      <div>
+        <ToastContainer></ToastContainer>
+        {loader && (
+          <span className="loading loading-spinner text-error text-center"></span>
+        )}
       </div>
     </div>
   );

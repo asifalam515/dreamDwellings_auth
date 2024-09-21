@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { Link } from "react-router-dom";
-// import toast, { ToastBar, Toaster } from "react-hot-toast";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+export const photoContext = createContext("");
 const Register = () => {
   // get context data using useContext
   const { createUser } = useContext(AuthContext);
@@ -12,6 +12,9 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   // error message
   const [registerError, setRegisterError] = useState("");
+  // image
+  // const [photo, setPhoto] = useState("");
+  // console.log(photo);
 
   // register form handler
   const handleRegister = (e) => {
@@ -21,26 +24,27 @@ const Register = () => {
     const email = e.target.email.value;
     const name = e.target.name.value;
     const password = e.target.password.value;
+    const profilePhoto = e.target.photo.value;
+
     if (!/^(?=.*[a-z])(?=.*[A-Z]).{6,}$/.test(password)) {
       setRegisterError(
         "Your password must have UpperCase,lowercase and length must be greater than 6"
       );
 
-      toast(
+      toast.error(
         "Your password must have UpperCase,lowercase and length must be greater than 6 "
       );
 
       return;
     }
-    //  registration
-    createUser(email, password)
+    // registration
+    createUser(email, password, profilePhoto)
       .then((result) => {
         const newUser = result.user;
         console.log("logged created", newUser);
-        toast("Account Registered Successfully");
       })
       .catch((error) => {
-        setRegisterError("Error Occurs", error.message);
+        setRegisterError("Error Occurs: " + error.message);
         console.log(error);
       });
   };
@@ -119,7 +123,8 @@ const Register = () => {
       </div>
       <div>
         {/* toast notification */}
-        <ToastContainer />
+        {/* <img src={photo} alt="Profile" /> */}
+        {/* <ToastContainer /> */}
       </div>
     </div>
   );
