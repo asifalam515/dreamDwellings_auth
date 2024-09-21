@@ -1,4 +1,4 @@
-import React from "react";
+import { getAuth, updateProfile } from "firebase/auth";
 
 const UpdateProfile = () => {
   return (

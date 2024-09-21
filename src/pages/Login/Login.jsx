@@ -95,6 +95,7 @@ const Login = () => {
       })
       .catch((error) => {
         setLoginError("Error occurs: " + error.message);
+        toast(error.message);
         console.log(error);
       });
   };
