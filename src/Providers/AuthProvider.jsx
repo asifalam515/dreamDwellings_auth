@@ -35,6 +35,8 @@ const AuthProvider = ({ children }) => {
   // logout
   const logoutUser = () => {
     setLoader(true);
+    setName("");
+    setPhoto("");
     return signOut(auth);
   };
   //  observer on the Auth object
@@ -56,6 +58,10 @@ const AuthProvider = ({ children }) => {
     loader,
     photo,
     name,
+    setPhoto,
+    setName,
+    setUser,
+    setLoader,
   };
 
   return (

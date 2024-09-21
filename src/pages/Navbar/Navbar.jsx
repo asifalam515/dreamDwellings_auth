@@ -74,13 +74,21 @@ const Navbar = () => {
           {/* Profile image with tooltip */}
           {user && (
             <div className="relative group">
-              <img
-                className="w-12 h-12 rounded-full object-cover"
-                src={photo}
-                alt="Profile"
-              />
+              {photo ? (
+                <img
+                  className="w-12 h-12 rounded-full object-cover"
+                  src={photo}
+                  alt="Profile"
+                />
+              ) : (
+                <img
+                  className="w-12 h-12 rounded-full object-cover"
+                  src="https://media.istockphoto.com/id/1055079680/vector/black-linear-photo-camera-like-no-image-available.jpg?s=612x612&w=0&k=20&c=P1DebpeMIAtXj_ZbVsKVvg-duuL0v9DlrOZUvPG6UJk="
+                  alt="Profile"
+                />
+              )}
               <span className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                <h1 className="text-2xl">{name}</h1>
+                <h1 className="text-2xl">{name ? name : "No name found"}</h1>
               </span>
             </div>
           )}
