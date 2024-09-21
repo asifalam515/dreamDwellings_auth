@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { toast, ToastContainer } from "react-toastify";
+import "animate.css";
 
 const Navbar = () => {
   const { user, logoutUser, loader, photo, name } = useContext(AuthContext);
@@ -59,7 +60,10 @@ const Navbar = () => {
               {navData}
             </ul>
           </div>
-          <Link to="/" className="btn btn-ghost text-xl">
+          <Link
+            to="/"
+            className="btn btn-ghost text-xl animate__animated animate__bounce"
+          >
             DreamDwellings
           </Link>
         </div>
