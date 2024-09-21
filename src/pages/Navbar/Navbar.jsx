@@ -79,7 +79,9 @@ const Navbar = () => {
                 alt="Profile"
               />
               <span className="absolute top-12 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-sm px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
-                <h1 className="text-2xl">{name || "No name found"}</h1>
+                <h1 className="text-2xl text-rose-600">
+                  {name || "No name found"}
+                </h1>
               </span>
             </div>
           )}

@@ -13,28 +13,29 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const auth = getAuth(app);
 
-  //   state for user
+  // State for user
   const [user, setUser] = useState(null);
   const [loader, setLoader] = useState(true);
-  // photo
+  // Photo
   const [photo, setPhoto] = useState("");
-  // name
+  // Name
   const [name, setName] = useState("");
-  // create new user
+
+  // Create new user
   const createUser = (email, password, profilePhoto, name) => {
     setPhoto(profilePhoto);
     setName(name);
     setLoader(true);
-
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  //   login existing user
+  // Login existing user
   const loginUser = (email, password) => {
     setLoader(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
-  // logout
+
+  // Logout
   const logoutUser = () => {
     setLoader(true);
     setName("");
@@ -42,7 +43,28 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
-  //  observer on the Auth object
+  // Update profile
+  const updateProfileInfo = async (updatedName, updatePhoto) => {
+    const user = auth.currentUser;
+    if (user) {
+      try {
+        await updateProfile(user, {
+          displayName: updatedName,
+          photoURL: updatePhoto,
+        });
+        setUser({
+          ...user,
+          displayName: updatedName,
+          photoURL: updatePhoto,
+        });
+        console.log("Profile updated successfully");
+      } catch (error) {
+        console.error("Error updating profile: ", error);
+      }
+    }
+  };
+
+  // Observer on the Auth object
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -53,6 +75,7 @@ const AuthProvider = ({ children }) => {
       unSubscribe();
     };
   }, []);
+
   const authInfo = {
     user,
     createUser,
@@ -65,6 +88,7 @@ const AuthProvider = ({ children }) => {
     setName,
     setUser,
     setLoader,
+    updateProfileInfo,
   };
 
   return (
