@@ -106,9 +106,9 @@ const Navbar = () => {
       </div>
       <div>
         <ToastContainer></ToastContainer>
-        {loader && (
+        {/* {loader && (
           <span className="loading loading-spinner text-error text-center"></span>
-        )}
+        )} */}
       </div>
     </div>
   );

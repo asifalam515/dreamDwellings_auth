@@ -10,6 +10,9 @@ import Home from "./pages/Home/Home.jsx";
 import Register from "./pages/Register/Register.jsx";
 import Login from "./pages/Login/Login.jsx";
 import AuthProvider from "./Providers/AuthProvider.jsx";
+import UpdateProfile from "./pages/UpdateProfile/UpdateProfile.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
+import PrivateRoute from "./Routes/PrivateRoute.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,6 +30,22 @@ const router = createBrowserRouter([
       {
         path: "/login/",
         element: <Login></Login>,
+      },
+      {
+        path: "/update/",
+        element: (
+          <PrivateRoute>
+            <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/profile/",
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
       },
     ],
   },
