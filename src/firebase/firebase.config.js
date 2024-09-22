@@ -6,12 +6,12 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDjko_wdVHdqv7wKaUPb8kYA_ANXWUx92M",
-  authDomain: "dreamdwellings-786e6.firebaseapp.com",
-  projectId: "dreamdwellings-786e6",
-  storageBucket: "dreamdwellings-786e6.appspot.com",
-  messagingSenderId: "472556174899",
-  appId: "1:472556174899:web:d9f02b4144d5ba11f36d46",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 // Initialize Firebase
