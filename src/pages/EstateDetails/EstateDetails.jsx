@@ -64,6 +64,14 @@ const EstateDetails = () => {
           </div>
           <span className="block mb-4">{location}</span>
         </div>
+        <div className="mb-4">
+          <h1 className="text-center text-2xl">Key Facilities: </h1>
+          <ul className="flex flex-row gap-10 justify-center items-center">
+            {facilities.map((facilitie, idx) => (
+              <li key={idx}>{facilitie} </li>
+            ))}
+          </ul>
+        </div>
         <div className="w-full h-96">
           {" "}
           {/* Tailwind classes for height and width */}
