@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const UpdateProfile = () => {
   const { updateProfileInfo, user } = useContext(AuthContext);
@@ -22,6 +23,9 @@ const UpdateProfile = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Update Profile</title>
+      </Helmet>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">

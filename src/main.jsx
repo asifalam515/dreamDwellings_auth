@@ -14,6 +14,7 @@ import UpdateProfile from "./pages/UpdateProfile/UpdateProfile.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
 import EstateDetails from "./pages/EstateDetails/EstateDetails.jsx";
+import { HelmetProvider } from "react-helmet-async";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,7 +65,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
     </AuthProvider>
   </StrictMode>
 );

@@ -1,12 +1,14 @@
 import { createContext, useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 export const photoContext = createContext("");
 const Register = () => {
+  const navigate = useNavigate();
   // show and hide eye password
   const [showPassword, setShowPassword] = useState(false);
   // get context data using useContext
@@ -45,6 +47,7 @@ const Register = () => {
       .then((result) => {
         const newUser = result.user;
         console.log("logged created", newUser);
+        navigate("/");
       })
       .catch((error) => {
         setRegisterError("Error Occurs: " + error.message);
@@ -54,6 +57,9 @@ const Register = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <div className="hero-content ">
         <div className="flex flex-col">
           <h1 className="text-5xl font-bold">Register Now</h1>

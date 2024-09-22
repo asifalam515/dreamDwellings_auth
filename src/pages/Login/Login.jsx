@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { app } from "../../firebase/firebase.config";
 import { GithubAuthProvider } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
         setPhoto(photo);
         localStorage.setItem("name", name);
         localStorage.setItem("photo", photo);
-
+        navigate("/");
         console.log("User using Google login", newUser);
       })
       .catch((error) => {
@@ -53,6 +54,7 @@ const Login = () => {
         setPhoto(photo);
         localStorage.setItem("name", name);
         localStorage.setItem("photo", photo);
+        navigate("/");
       })
       .catch((error) => {
         console.log("github error", error.message);
@@ -103,6 +105,9 @@ const Login = () => {
   return (
     <div>
       <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100">
+        <Helmet>
+          <title>Login</title>
+        </Helmet>
         <h1 className="text-2xl font-bold text-center">Login</h1>
         <form onSubmit={handleLoginForm} className="space-y-6">
           <div className="space-y-1 text-sm">

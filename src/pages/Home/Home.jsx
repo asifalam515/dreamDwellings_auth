@@ -3,6 +3,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import Banner from "../Banner/Banner";
 import { useLoaderData } from "react-router-dom";
 import Product from "../Product/Product";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const products = useLoaderData();
@@ -15,8 +16,11 @@ const Home = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Home</title>
+      </Helmet>
       <Banner />
-      <div className="grid grid-cols-3 mt-2">
+      <div className=" mx-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-2">
         {products.map((product) => (
           <Product key={product.id} product={product} />
         ))}

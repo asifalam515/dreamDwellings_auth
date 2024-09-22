@@ -1,5 +1,6 @@
 import React from "react";
 import { getAuth } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const auth = getAuth();
@@ -13,6 +14,9 @@ const Profile = () => {
 
     return (
       <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+        <Helmet>
+          <title>Profile</title>
+        </Helmet>
         <div className="max-w-md p-8 sm:flex sm:space-x-6 bg-white dark:bg-gray-800 dark:text-gray-100 shadow-lg rounded-lg">
           <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
             {/* Check if photoURL is available before rendering the img tag */}
