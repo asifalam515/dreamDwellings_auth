@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export const photoContext = createContext("");
 const Register = () => {
+  // show and hide eye password
+  const [showPassword, setShowPassword] = useState(false);
   // get context data using useContext
   const { createUser } = useContext(AuthContext);
   // success message
@@ -99,13 +102,18 @@ const Register = () => {
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
-              <input
-                name="password"
-                type="password"
-                placeholder="password"
-                className="input input-bordered"
-                required
-              />
+              <div className="flex flex-row items-center">
+                <input
+                  name="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="password"
+                  className="input input-bordered"
+                  required
+                />
+                <span onClick={() => setShowPassword(!showPassword)}>
+                  {showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+                </span>
+              </div>
               <label className="label">
                 <p className="label-text-alt link link-hover">
                   Already Have Account?

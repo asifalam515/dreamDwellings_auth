@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "image": "https://img.freepik.com/free-vector/hand-drawn-multigenerational-home-illustration_23-2150815139.jpg?t=st=1726974656~exp=1726978256~hmac=3cbfab003d5df596dc5964125655878879c9835da8d17db89b41b7742e9f3514&w=740",
+        "estate_title": "Modern Family Home",
+        "segment_name": "Family",
+        "description": "A beautiful modern home perfect for families, with spacious rooms and a large backyard.",
+        "price": "$500,000",
+        "status": "sale",
+        "area": "2500 sq ft",
+        "location": "123 Maple Street, Springfield",
+        "facilities": [
+            "Living room",
+            "Swimming pool",
+            "Kitchen",
+            "Garage",
+            "Garden"
+        ]
+    },
+    {
+        "id": 2,
+        "image": "https://img.freepik.com/free-photo/view-from-balcony-apartment_188544-12685.jpg?semt=ais_hybrid",
+        "estate_title": "Luxury Penthouse",
+        "segment_name": "Luxury",
+        "description": "Experience the height of luxury living in this exclusive penthouse with stunning city views.",
+        "price": "$1,200,000",
+        "status": "sale",
+        "area": "3000 sq ft",
+        "location": "456 Elm Street, Metropolis",
+        "facilities": [
+            "Living room",
+            "Swimming pool",
+            "Kitchen",
+            "Gym",
+            "Roof Terrace"
+        ]
+    },
+    {
+        "id": 3,
+        "image": "https://img.freepik.com/free-vector/cozy-cottage-tropical-island_1308-167198.jpg?ga=GA1.1.1519251138.1726974646&semt=ais_hybrid",
+        "estate_title": "Cozy Cottage",
+        "segment_name": "Retreat",
+        "description": "A charming cottage in the countryside, perfect for a peaceful retreat.",
+        "price": "$300,000",
+        "status": "sale",
+        "area": "1800 sq ft",
+        "location": "789 Pine Lane, Woodland",
+        "facilities": [
+            "Living room",
+            "Kitchen",
+            "Fireplace",
+            "Garden"
+        ]
+    },
+    {
+        "id": 4,
+        "image": "https://img.freepik.com/free-vector/architectural-style-evolution-image-modern-urban-residential-housing-apartment-blocks-3-concrete-multistory-buildings-illustration_1284-62260.jpg?t=st=1726974798~exp=1726978398~hmac=c0447c69f6e091e9621c161293ed6a84f1a3417fcf1721cf73ce71da663b5b24&w=740",
+        "estate_title": "Urban Apartment",
+        "segment_name": "City Living",
+        "description": "A stylish apartment in the heart of the city, close to all amenities.",
+        "price": "$2,000/month",
+        "status": "rent",
+        "area": "1200 sq ft",
+        "location": "1010 Downtown Avenue, Cityville",
+        "facilities": [
+            "Living room",
+            "Kitchen",
+            "Gym",
+            "Balcony"
+        ]
+    },
+    {
+        "id": 5,
+        "image": "https://img.freepik.com/free-photo/background-rarotonga-beautiful-day-summer_1203-4663.jpg?t=st=1726974841~exp=1726978441~hmac=f6943bea35d5775c53205af572265fbc8fe877fb6ececa8b8a83ccf866582417&w=740",
+        "estate_title": "Beachfront Villa",
+        "segment_name": "Vacation",
+        "description": "A stunning villa right on the beach, perfect for a luxurious vacation.",
+        "price": "$850,000",
+        "status": "sale",
+        "area": "2800 sq ft",
+        "location": "202 Ocean Drive, Seaside",
+        "facilities": [
+            "Living room",
+            "Swimming pool",
+            "Kitchen",
+            "Private Beach",
+            "Garden"
+        ]
+    },
+    {
+        "id": 6,
+        "image": "https://img.freepik.com/free-photo/row-houses-bristol-england_53876-143002.jpg?t=st=1726975334~exp=1726978934~hmac=e5c798a277ca7a453b924afe06d5cd39babb8e436f5a5b028c6f9e8151e742a1&w=740",
+        "estate_title": "Suburban Townhouse",
+        "segment_name": "Suburban",
+        "description": "A comfortable townhouse in a quiet suburban neighborhood, close to schools and parks.",
+        "price": "$450,000",
+        "status": "sale",
+        "area": "2200 sq ft",
+        "location": "345 Birch Road, Suburbia",
+        "facilities": [
+            "Living room",
+            "Kitchen",
+            "Garage",
+            "Backyard",
+            "Attic"
+        ]
+    }
+]

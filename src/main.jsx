@@ -13,6 +13,7 @@ import AuthProvider from "./Providers/AuthProvider.jsx";
 import UpdateProfile from "./pages/UpdateProfile/UpdateProfile.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import PrivateRoute from "./Routes/PrivateRoute.jsx";
+import EstateDetails from "./pages/EstateDetails/EstateDetails.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,6 +23,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+        loader: () => fetch("data.json"),
       },
       {
         path: "/register/",
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <UpdateProfile></UpdateProfile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/estateDetails/:id",
+        element: (
+          <PrivateRoute>
+            <EstateDetails></EstateDetails>
           </PrivateRoute>
         ),
       },

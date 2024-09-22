@@ -67,7 +67,7 @@ const Navbar = () => {
             DreamDwellings
           </Link>
         </div>
-        <div className="navbar-center hidden lg:flex">
+        <div data-aos="fade-up-left" className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navData}</ul>
         </div>
         <div className="navbar-end">
