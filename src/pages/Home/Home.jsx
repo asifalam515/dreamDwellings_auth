@@ -19,7 +19,7 @@ const Home = () => {
       <Helmet>
         <title>Home</title>
       </Helmet>
-      <Banner />
+      {/* <Banner /> */}
       <div className=" mx-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 mt-2">
         {products.map((product) => (
           <Product key={product.id} product={product} />
