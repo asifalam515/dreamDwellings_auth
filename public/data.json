@@ -15,7 +15,9 @@
             "Kitchen",
             "Garage",
             "Garden"
-        ]
+        ],
+        "lat": 40.12345,
+        "lng": -89.12345
     },
     {
         "id": 2,
@@ -33,7 +35,9 @@
             "Kitchen",
             "Gym",
             "Roof Terrace"
-        ]
+        ],
+        "lat": 51.505,
+        "lng": -0.09
     },
     {
         "id": 3,
@@ -50,7 +54,9 @@
             "Kitchen",
             "Fireplace",
             "Garden"
-        ]
+        ],
+        "lat": 34.12345,
+        "lng": -118.12345
     },
     {
         "id": 4,
@@ -67,7 +73,9 @@
             "Kitchen",
             "Gym",
             "Balcony"
-        ]
+        ],
+        "lat": 40.7128,
+        "lng": -74.0060
     },
     {
         "id": 5,
@@ -85,7 +93,9 @@
             "Kitchen",
             "Private Beach",
             "Garden"
-        ]
+        ],
+        "lat": -21.2077,
+        "lng": -159.7750
     },
     {
         "id": 6,
@@ -103,6 +113,8 @@
             "Garage",
             "Backyard",
             "Attic"
-        ]
+        ],
+        "lat": 51.4545,
+        "lng": -2.5879
     }
 ]
